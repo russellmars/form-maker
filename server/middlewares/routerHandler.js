@@ -2,7 +2,7 @@ const router = require('../core/router');
 const compose = require('koa-compose');
 const jwt = require('koa-jwt');
 const securityConfig = require('../config/security.json');
-
+// 暂时无用
 module.exports = () => {
   const middleware = compose([
     jwt({ secret: securityConfig.jwt.secret }),

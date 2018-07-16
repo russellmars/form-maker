@@ -1,12 +1,12 @@
 const Koa = require('koa');
 const bodyParser = require('koa-bodyparser');
+const serve = require('koa-static');
 const path = require('path');
 
 const mongodb = require('./core/mongodb');
+const router = require('./core/router');
 
 const errorHandler = require('./middlewares/errorHandler');
-const staticHandler = require('./middlewares/staticHandler');
-const routerHandler = require('./middlewares/routerHandler')
 
 const serverConfig = require('./config/server.json');
 
@@ -14,12 +14,14 @@ mongodb.initialize();
 
 const app = new Koa();
 
-app.use(staticHandler(path.join(__dirname, '../dist')));
+app.use(serve(path.join(__dirname, '../dist')));
 
 app.use(bodyParser());
 
 app.use(errorHandler);
-app.use(routerHandler());
+
+app.use(router.routes());
+app.use(router.allowedMethods());
 
 const { port, host } = serverConfig;
 app.listen(port, host);
