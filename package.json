@@ -18,9 +18,12 @@
   "dependencies": {
     "bootstrap": "4.1.1",
     "bootstrap-vue": "^2.0.0-rc.11",
+    "is_js": "^0.9.0",
     "koa": "^2.5.2",
     "koa-bodyparser": "^4.2.1",
+    "koa-jwt": "^3.3.2",
     "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
     "mongoose": "^5.2.3",
     "normalize.css": "^8.0.0",
     "vue": "^2.5.2",

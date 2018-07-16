@@ -3,7 +3,7 @@ module.exports = async (ctx, next) => {
   try {
     await next()
   } catch (err) {
-    console.log(err)
+    console.log('err === ', err)
     ctx.status = 500;
     ctx.body = {
       code: 0,
